@@ -14,6 +14,7 @@ import json
 import time
 #import tweepy # UNCOMMENT THIS LINE TO USE TWITTER
 import sys
+import random
 
 from datetime import datetime
 from geopy.geocoders import GoogleV3
