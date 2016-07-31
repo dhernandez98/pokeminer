@@ -94,3 +94,8 @@ Then, we can open the file pokespawn_release.py and fill some data.
 To change the Pokemon that must be alerted, edit the line 241. To split your location from your ZIP code given by Google, edit the line 262 with the first digits.
 
 *The code is messy and dirty*
+
+To execute, just use. The worker should be running because otherwhise, there won't be any active Pokemons.
+```
+python pokespawn_release.py
+```
