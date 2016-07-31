@@ -99,3 +99,7 @@ To execute, just use. The worker should be running because otherwhise, there won
 ```
 python pokespawn_release.py
 ```
+
+## Automatic account creation
+
+Use this script https://github.com/sodanakin/Anonymous_Scripter_Tool
