@@ -12,7 +12,7 @@ import telegram
 import db
 import json
 import time
-import tweepy
+#import tweepy # UNCOMMENT THIS LINE TO USE TWITTER
 import sys
 
 from datetime import datetime
@@ -24,20 +24,20 @@ from time import sleep
 with open('locales/pokemon.en.json') as f:
     pokemon_names = json.load(f)
     
-# set UTF8 for emojis support.
+# set UTF8 for emojis support
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
 # init geolocator API. You can use any geolocation service here, but Google is suggested.
 geolocator = GoogleV3(api_key = 'GMAPS API KEY')
 
-# init Twitter API.
-auth = tweepy.OAuthHandler('CONSUMER KEY', 'CONSUMER SECRET')  
+# UNCOMMENT THIS BLOCK TO USE TWITTER
+'''auth = tweepy.OAuthHandler('CONSUMER KEY', 'CONSUMER SECRET')  
 auth.set_access_token('ACCESS TOKEN', 'ACCESS TOKEN SECRET') # to obtain these, check out the tools folder.
 
 global api
 api = tweepy.API(auth)  
-
+'''
 # we use emojis to show the rarity of a Pokemon.
 sparkles = u'\U00002728'
 whiteball = u'\U000026AA'
@@ -258,9 +258,6 @@ def PokListener(bot):
                         datestr = datetime.fromtimestamp(pokemon.expire_timestamp)
                         dateoutput = datestr.strftime("%H:%M:%S")
                         
-                        twdatestr = datetime.fromtimestamp(now)
-                        twdateoutput = datestr.strftime("%d/%m/%Y") # Spanish' default date format. Change to %m/%d/%Y if you're not Spanish.
-                        
                         location = geolocator.reverse((pokemon.lat, pokemon.lon), True)
                         useloc = location.address.split(', 230') #this is used to trim the location. If string is >140 chars, Twitter API will crash. Change to the first digits of your ZIP code. If ZIP code is 23002, i'll put 230
                         print '[-] A ' + name + ' was found in ' + useloc[0] + '. ' + str(round(time_remaining)) + 's remaining.' 
@@ -270,8 +267,11 @@ def PokListener(bot):
                         bot.sendMessage('@CHANNEL/GROUP', message, 'html') # the @name of your channel/group. The bot MUST be added as administrator if channel.
                         bot.sendLocation('@CHANNEL/GROUP', pokemon.lat, pokemon.lon) # same, the @name of your channel/group where the location will be send to.
                         
+                        # UNCOMMENT THIS BLOCK TO USE TWITTER
+                        '''twdatestr = datetime.fromtimestamp(now)
+                        twdateoutput = datestr.strftime("%d/%m/%Y") # Spanish' default date format. Change to %m/%d/%Y if you're not Spanish.
                         message = '[' + twdateoutput + '] ' + EmojiFromRank(PokIDtoStars(pokemon.pokemon_id)) + name + ' appeared at ' + useloc[0] + '. Disappear time: ' + dateoutput + '. http://www.google.com/maps/dir/Current+Location/' + pokemon.lat + ',' + pokemon.lon
-                        api.update_status(message, (pokemon.lat, pokemon.lon))
+                        api.update_status(message, (pokemon.lat, pokemon.lon))'''
 
 if __name__ == '__main__':
     main()
