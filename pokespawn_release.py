@@ -24,7 +24,7 @@ from time import sleep
 with open('locales/pokemon.en.json') as f:
     pokemon_names = json.load(f)
     
-# set UTF8 for emojis support
+# set UTF8 for emojis support.
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
