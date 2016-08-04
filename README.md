@@ -74,32 +74,3 @@ Here's how the overall report looks like:
 ## License
 
 See [LICENSE](LICENSE).
-
-## Using PokeSpawn with PokeMiner
-
-We need to install some libraries
-
-```
-pip install tweepy --upgrade
-pip install python-telegram-bot --upgrade
-```
-
-Then, we can open the file pokespawn_release.py and fill some data.
-
-1. Line 32: we have to enter our Google Maps API key.
-2. If we want to use a Twitter account to post the location, we need to uncomment the block in line 35 and fill the data with our Twitter Apps credentials.
-3. Line 55: insert your Telegram bot secret key.
-4. Line 267 and 268: edit the @channel/group with your @channel name. The bot MUST be added as administrator.
-
-To change the Pokemon that must be alerted, edit the line 241. To split your location from your ZIP code given by Google, edit the line 262 with the first digits.
-
-*The code is messy and dirty*
-
-To execute, just use. The worker should be running because otherwhise, there won't be any active Pokemons.
-```
-python pokespawn_release.py
-```
-
-## Automatic account creation
-
-Use this script https://github.com/sodanakin/Anonymous_Scripter_Tool
