@@ -1,3 +1,6 @@
+# This project is obsolete. Try to find another one in Reddit.
+--------------
+
 # pokeminer
 
 Pokemon Go scraper capable of scanning large area for Pokemon spawns over long period of time. Suitable for gathering data for further analysis.
