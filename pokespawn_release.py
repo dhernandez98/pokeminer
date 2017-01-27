@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 ''' 
-    @author: github.com/dhernandez98 - twitter.com/MrKemula
+    @author: github.com/dhernandez98 - twitter.com/dhernandez0798
     This simple Python script gathers the active Pokemon in the specified zone of PokeMiner and uses both Telegram and Twitter API to send alerts.
 '''
 
